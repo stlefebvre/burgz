@@ -1,5 +1,21 @@
 var express = require("express");
 var bodyparser = require("body-parser");
-var mysql = require("mysql");
+var methodoverride = require("method-override");
+var expshndlbrs = require("express");
+var routes = require("./controllers/burgers_controller.js")
+
+var PORT = process.env.PORT || 8080;
 
 var app = express();
+
+app.use(express.static("public"));
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(methodoverride("_method"));
+
+app.engine("handlebars", expshndlbrs({defaultLayout: "main"}));
+app.set("view engine", "handlebars");
+
+app.use("/", routes);
+
+app.listen(PORT);
