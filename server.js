@@ -1,5 +1,5 @@
 var express = require("express");
-var bodyparser = require("body-parser");
+var bodyParser = require("body-parser");
 var methodoverride = require("method-override");
 var expshndlbrs = require("express");
 var routes = require("./controllers/burgers_controller.js")
