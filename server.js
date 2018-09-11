@@ -4,7 +4,7 @@ var methodoverride = require("method-override");
 var expshndlbrs = require("express");
 var routes = require("./controllers/burgers_controller.js")
 
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.JAWSDB_URL || 8080;
 
 var app = express();
 
